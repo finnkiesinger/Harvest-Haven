@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sprites>
+    <sprite name="player_house">
+        <collision startX="4" startY="38" endX="76" endY="80" />
+    </sprite>
+</sprites>

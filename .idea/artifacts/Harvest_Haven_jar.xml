@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Harvest Haven:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Harvest_Haven_jar</output-path>
+    <root id="archive" name="Harvest Haven.jar">
+      <element id="module-output" name="Harvest Haven" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/resources/jdom-2.0.6.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

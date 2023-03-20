@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Harvest Haven:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Harvest_Haven_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jdom_2_0_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Harvest Haven.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/basic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/character.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/bob .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/braids.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/buzzcut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/curly.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/emo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/extra_long.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/extra_long_skirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/french_curl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/gentleman.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/long_straight .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/long_straight_skirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/midiwave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/ponytail .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/spacebuns.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/hair/wavy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/jdom-2.0.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/maps/PlayerBase.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/pants.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/shoes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/player_house.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/global.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exceptions/MapLoadException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Assets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Input.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Animation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Global.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Intersection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Side.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Vector2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Camera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/GameCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Layer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/MainWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/SpriteData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Tiles.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2N6rejVXjFkbvbzR6dZl5OJdrA9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/finnkiesinger/Harvest Haven/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Harvest Haven" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Harvest Haven.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Harvest_Haven_jar/Harvest Haven.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.Harvest Haven.jar" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="" />
+      <created>1678995471317</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678995471317</updated>
+      <workItem from="1678995472194" duration="10742000" />
+      <workItem from="1679045334184" duration="20556000" />
+      <workItem from="1679124678620" duration="4476000" />
+      <workItem from="1679166076411" duration="3542000" />
+      <workItem from="1679171513882" duration="2055000" />
+      <workItem from="1679206749762" duration="26488000" />
+      <workItem from="1679296917627" duration="262000" />
+      <workItem from="1679298464310" duration="5990000" />
+      <workItem from="1679307024060" duration="8431000" />
+      <workItem from="1679327024385" duration="342000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.tmx" />
+  </component>
+</project>
