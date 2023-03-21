@@ -48,10 +48,6 @@ public class Sprite implements Comparable<Sprite> {
         images.add(image.getScaledInstance(width, height, Image.SCALE_SMOOTH));
     }
 
-    public Sprite(SpriteInfo spriteInfo) {
-        this(spriteInfo.name, spriteInfo.x, spriteInfo.y, spriteInfo.width, spriteInfo.height);
-    }
-
     public String getName() {
         return name;
     }

@@ -1,7 +1,7 @@
 package graphics;
 
-import general.*;
 import general.Rectangle;
+import general.*;
 
 import java.awt.*;
 import java.time.Duration;
@@ -20,7 +20,8 @@ public class Player extends AnimatedSprite {
                 new SpriteInfo("character", 0, 0, 32, 32),
                 new SpriteInfo("basic", 0, 0, 32, 32),
                 new SpriteInfo("pants", 0, 0, 32, 32),
-                new SpriteInfo("shoes", 0, 0, 32, 32)
+                new SpriteInfo("shoes", 0, 0, 32, 32),
+                new SpriteInfo("hair", 0, 0, 32, 32)
         ));
 
         x = spawnPoint.x;
@@ -35,7 +36,7 @@ public class Player extends AnimatedSprite {
         Animation animation = animations.get(currentAnimation);
         List<Image> sprites;
         if (animation != null) {
-            sprites = animation.getCurrentFrame();
+            sprites = List.of(animation.getCurrentFrame());
         } else {
             sprites = images;
         }
@@ -148,9 +149,6 @@ public class Player extends AnimatedSprite {
                 break;
             case RIGHT:
                 playAnimation("IdleRight");
-                break;
-            default:
-                stopAnimation();
                 break;
         }
     }
@@ -291,9 +289,9 @@ public class Player extends AnimatedSprite {
         addAnimation(new Animation("WalkUp", walkUp, Duration.ofMillis(100).toNanos(), true));
         addAnimation(new Animation("WalkLeft", walkLeft, Duration.ofMillis(100).toNanos(), true));
         addAnimation(new Animation("WalkRight", walkRight, Duration.ofMillis(100).toNanos(), true));
-        addAnimation(new Animation("IdleDown", idleDown, Duration.ofMillis(100).toNanos()));
-        addAnimation(new Animation("IdleUp", idleUp, Duration.ofMillis(100).toNanos()));
-        addAnimation(new Animation("IdleLeft", idleLeft, Duration.ofMillis(100).toNanos()));
-        addAnimation(new Animation("IdleRight", idleRight, Duration.ofMillis(100).toNanos()));
+        addAnimation(new Animation("IdleDown", idleDown, Duration.ofMillis(100).toNanos(), true));
+        addAnimation(new Animation("IdleUp", idleUp, Duration.ofMillis(100).toNanos(), true));
+        addAnimation(new Animation("IdleLeft", idleLeft, Duration.ofMillis(100).toNanos(), true));
+        addAnimation(new Animation("IdleRight", idleRight, Duration.ofMillis(100).toNanos(), true));
     }
 }

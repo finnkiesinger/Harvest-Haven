@@ -58,7 +58,7 @@ abstract public class AnimatedSprite extends Sprite {
         Animation animation = animations.get(currentAnimation);
         List<Image> sprites;
         if (animation != null) {
-            sprites = animation.getCurrentFrame();
+            sprites = List.of(animation.getCurrentFrame());
         } else {
             sprites = images;
         }

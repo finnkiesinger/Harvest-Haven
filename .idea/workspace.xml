@@ -9,19 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="trigger added">
+    <list default="true" id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="animation optimization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sprites.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sprites.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Assets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/general/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/general/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/general/Trigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Trigger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/AnimatedWorldObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/AnimatedWorldObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/SpriteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/SpriteData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679327708506</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="trigger added">
+      <created>1679429808324</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679429808324</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +141,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added README.md" />
     <MESSAGE value="trigger added" />
-    <option name="LAST_COMMIT_MESSAGE" value="trigger added" />
+    <MESSAGE value="animation optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="animation optimization" />
   </component>
 </project>

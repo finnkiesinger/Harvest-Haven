@@ -4,11 +4,6 @@ public class Trigger implements Cloneable {
     private Rectangle boundingBox;
     private OnTrigger onTrigger = null;
 
-    public Trigger(Rectangle boundingBox, OnTrigger onTrigger) {
-        this.boundingBox = boundingBox;
-        this.onTrigger = onTrigger;
-    }
-
     public Trigger(Rectangle boundingBox) {
         this.boundingBox = boundingBox;
     }
@@ -29,10 +24,6 @@ public class Trigger implements Cloneable {
 
     public Rectangle getBoundingBox() {
         return boundingBox;
-    }
-
-    public OnTrigger getOnTrigger() {
-        return onTrigger;
     }
 
     @Override
