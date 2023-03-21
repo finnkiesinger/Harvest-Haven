@@ -16,13 +16,15 @@ public class AnimatedWorldObject extends AnimatedSprite {
         this.width = (int) (Assets.instance.getImage(sprites.get(0).get(0)).getWidth(null) * Global.SPRITE_SCALE);
         this.height = (int) (Assets.instance.getImage(sprites.get(0).get(0)).getHeight(null) * Global.SPRITE_SCALE);
 
+        images.add(Assets.instance.getImage(sprites.get(0).get(0)).getScaledInstance(width, height, Image.SCALE_SMOOTH));
+
         Animation animation = new Animation("Interaction", sprites, frameTime, false);
 
         addAnimation(animation);
     }
 
     public AnimatedWorldObject(List<List<String>> sprites, int x, int y) {
-        this(sprites, x, y, Duration.ofMillis(200).toNanos());
+        this(sprites, x, y, Duration.ofMillis(150).toNanos());
     }
 
     @Override

@@ -80,6 +80,24 @@ public class Player extends AnimatedSprite {
                     }
                 }
             }
+            Rectangle intersect = new Rectangle(
+                    (int) (x + boundingBox.x),
+                    (int) (y + boundingBox.y),
+                    boundingBox.width,
+                    boundingBox.height
+            );
+            for (Sprite other : level.getSpriteTriggers(this)) {
+                Rectangle otherIntersect = new Rectangle(
+                        (int) (other.x + other.getTrigger().getBoundingBox().x),
+                        (int) (other.y + other.getTrigger().getBoundingBox().y),
+                        other.getTrigger().getBoundingBox().width,
+                        other.getTrigger().getBoundingBox().height
+                );
+                Intersection intersection = intersect.intersects(otherIntersect);
+                if (intersection.intersects) {
+                    other.getTrigger().trigger();
+                }
+            }
         }
     }
 

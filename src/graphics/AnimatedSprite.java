@@ -4,7 +4,6 @@ import general.Animation;
 import general.Vector2;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +46,10 @@ abstract public class AnimatedSprite extends Sprite {
 
         if (animation != null) {
             animation.update(deltaTime);
+
+            if (animation.isDone()) {
+                stopAnimation();
+            }
         }
     }
 

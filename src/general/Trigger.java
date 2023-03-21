@@ -1,12 +1,16 @@
 package general;
 
-public class Trigger {
+public class Trigger implements Cloneable {
     private Rectangle boundingBox;
-    private OnTrigger onTrigger;
+    private OnTrigger onTrigger = null;
 
     public Trigger(Rectangle boundingBox, OnTrigger onTrigger) {
         this.boundingBox = boundingBox;
         this.onTrigger = onTrigger;
+    }
+
+    public Trigger(Rectangle boundingBox) {
+        this.boundingBox = boundingBox;
     }
 
     public void setBoundingBox(Rectangle boundingBox) {
@@ -18,7 +22,9 @@ public class Trigger {
     }
 
     public void trigger() {
-        onTrigger.trigger();
+        if (onTrigger != null) {
+            onTrigger.trigger();
+        }
     }
 
     public Rectangle getBoundingBox() {
@@ -27,5 +33,16 @@ public class Trigger {
 
     public OnTrigger getOnTrigger() {
         return onTrigger;
+    }
+
+    @Override
+    public Trigger clone() {
+        try {
+            Trigger clone = (Trigger) super.clone();
+            clone.boundingBox = boundingBox.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

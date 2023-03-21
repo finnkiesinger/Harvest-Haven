@@ -1,6 +1,8 @@
 package game;
 
 import general.Global;
+import general.Rectangle;
+import general.Trigger;
 import graphics.SpriteData;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -9,7 +11,6 @@ import org.jdom2.input.SAXBuilder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -123,6 +124,16 @@ public class Assets {
                         int width = collision.getAttribute("endX").getIntValue() - x;
                         int height = collision.getAttribute("endY").getIntValue() - y;
                         spriteData.addBoundingBox(x, y, width, height);
+                    }
+                    Element triggerElement = spriteElement.getChild("trigger");
+                    if (triggerElement != null) {
+                        int x = triggerElement.getAttribute("startX").getIntValue();
+                        int y = triggerElement.getAttribute("startY").getIntValue();
+                        int width = triggerElement.getAttribute("endX").getIntValue() - x;
+                        int height = triggerElement.getAttribute("endY").getIntValue() - y;
+                        Rectangle rectangle = new Rectangle(x, y, width, height);
+                        Trigger trigger = new Trigger(rectangle);
+                        spriteData.addTrigger(trigger);
                     }
                     sprites.put(name, spriteData);
                 }

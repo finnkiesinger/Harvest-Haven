@@ -1,6 +1,7 @@
 package graphics;
 
 import general.Rectangle;
+import general.Trigger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 public class SpriteData {
     private final List<List<String>> names = new ArrayList<>();
     private Rectangle boundingBox = null;
+    private Trigger trigger = null;
     private final boolean animated;
 
     public SpriteData(String name) {
@@ -30,6 +32,14 @@ public class SpriteData {
 
     public void addBoundingBox(int x, int y, int width, int height) {
         boundingBox = new Rectangle(x, y, width, height);
+    }
+
+    public void addTrigger(Trigger trigger) {
+        this.trigger = trigger;
+    }
+
+    public Trigger getTrigger() {
+        return trigger;
     }
 
     public Rectangle getBoundingBox() {

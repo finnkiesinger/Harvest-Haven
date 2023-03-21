@@ -14,7 +14,8 @@ import java.util.List;
 public class Sprite implements Comparable<Sprite> {
     public static final int BOUNDING_BOX = 0;
     public static final int SPRITE = 1;
-    public static final int EVERYTHING = 2;
+    public static final int TRIGGER = 2;
+    public static final int EVERYTHING = 3;
 
     protected final List<Image> images = new ArrayList<>();
     protected double x, y;
@@ -116,6 +117,12 @@ public class Sprite implements Comparable<Sprite> {
             graphics.setColor(Color.RED);
             graphics.drawRect(position.x + boundingBox.x, position.y + boundingBox.y, boundingBox.width, boundingBox.height);
         }
+        if ((mode == TRIGGER || mode == EVERYTHING) && trigger != null) {
+            Vector2 position = Camera.main
+                    .apply(new Vector2((int) x, (int) y));
+            graphics.setColor(Color.GREEN);
+            graphics.drawRect(position.x + trigger.getBoundingBox().x, position.y + trigger.getBoundingBox().y, trigger.getBoundingBox().width, trigger.getBoundingBox().height);
+        }
     }
 
     public void update(long deltaTime) {
@@ -150,5 +157,16 @@ public class Sprite implements Comparable<Sprite> {
             this.width = width;
             this.height = height;
         }
+    }
+
+    public void setTrigger(Trigger trigger) {
+        if (trigger == null) return;
+
+        trigger.setBoundingBox(trigger.getBoundingBox().scaled(2));
+        this.trigger = trigger;
+    }
+
+    public Trigger getTrigger() {
+        return trigger;
     }
 }

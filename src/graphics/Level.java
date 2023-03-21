@@ -3,6 +3,7 @@ package graphics;
 import exceptions.MapLoadException;
 import game.Assets;
 import general.Global;
+import general.Trigger;
 import general.Vector2;
 import general.Rectangle;
 import org.jdom2.Attribute;
@@ -126,10 +127,18 @@ public class Level {
                         if (data.isAnimated()) {
                             AnimatedWorldObject animatedWorldObject = new AnimatedWorldObject(data.getNames(), x, y);
                             animatedWorldObject.addBoundingBox(data.getBoundingBox());
+                            if (data.getTrigger() != null) {
+                                Trigger trigger = data.getTrigger().clone();
+                                trigger.setOnTrigger(() -> animatedWorldObject.playAnimation("Interaction"));
+                                animatedWorldObject.setTrigger(trigger);
+                            }
                             sprites.add(animatedWorldObject);
                         } else {
                             Sprite sprite = new Sprite(name, x, y);
                             sprite.addBoundingBox(data.getBoundingBox());
+                            if (data.getTrigger() != null) {
+                                sprite.setTrigger(data.getTrigger().clone());
+                            }
                             sprites.add(sprite);
                         }
                     }
@@ -176,5 +185,11 @@ public class Level {
                         sprite.getBoundingBox().width,
                         sprite.getBoundingBox().height
                 )), collisionRectangles.stream()).toList();
+    }
+
+    public List<Sprite> getSpriteTriggers(Sprite exclude) {
+        return Stream.concat(sprites.stream(), actors.stream())
+                .filter(sprite -> sprite.getTrigger() != null && sprite != exclude)
+                .toList();
     }
 }

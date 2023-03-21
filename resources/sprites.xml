@@ -5,6 +5,6 @@
     </sprite>
     <sprite name="tree_fir" animated="true">
         <collision startX="12" startY="24" endX="20" endY="32" />
-        <trigger startX="8" startY="26" endX="24" endY="30" />
+        <trigger startX="6" startY="26" endX="26" endY="30" />
     </sprite>
 </sprites>

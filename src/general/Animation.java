@@ -87,4 +87,8 @@ public class Animation {
         elapsedTime = 0;
         done = false;
     }
+
+    public boolean isDone() {
+        return done;
+    }
 }

@@ -2,10 +2,9 @@ package general;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class Rectangle {
+public class Rectangle implements Cloneable {
     public final int x, y, width, height;
 
     public Rectangle(int x, int y, int width, int height) {
@@ -32,6 +31,25 @@ public class Rectangle {
         }
 
         return new Intersection(false, null);
+    }
+
+    public Rectangle scaled(double scale) {
+        return new Rectangle(
+                (int) (this.x * scale),
+                (int) (this.y * scale),
+                (int) (this.width * scale),
+                (int) (this.height * scale)
+        );
+    }
+
+    public Rectangle clone() {
+        try {
+            super.clone();
+            return new Rectangle(x, y, width, height);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
