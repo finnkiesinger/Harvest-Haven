@@ -3,10 +3,10 @@ package graphics;
 import game.Assets;
 import general.Global;
 import general.Rectangle;
+import general.Trigger;
 import general.Vector2;
 
 import java.awt.*;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,12 @@ public class Sprite implements Comparable<Sprite> {
     protected final List<Image> images = new ArrayList<>();
     protected double x, y;
 
+    private String name = null;
+
     int width, height;
 
     protected Rectangle boundingBox = null;
+    protected Trigger trigger = null;
 
     public Sprite(String name, int x, int y, int width, int height) {
         this.width = width;
@@ -34,6 +37,7 @@ public class Sprite implements Comparable<Sprite> {
     }
 
     public Sprite(String name, int x, int y) {
+        this.name = name;
         this.x = (int) (x * Global.SPRITE_SCALE);
         this.y = (int) (y * Global.SPRITE_SCALE);
         BufferedImage image = Assets.instance.getImage(name);
@@ -45,6 +49,10 @@ public class Sprite implements Comparable<Sprite> {
 
     public Sprite(SpriteInfo spriteInfo) {
         this(spriteInfo.name, spriteInfo.x, spriteInfo.y, spriteInfo.width, spriteInfo.height);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addBoundingBox(int x, int y, int width, int height) {

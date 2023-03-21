@@ -10,7 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/tree_fir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/tree_fir/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/tree_fir/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/tree_fir/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sprites/tree_fir/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/OnTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/general/Trigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/AnimatedWorldObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/PlayerBase.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/PlayerBase.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sprites.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sprites.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/general/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/general/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/GameCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/SpriteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/SpriteData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +43,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -36,33 +60,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/finnkiesinger/Harvest Haven/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/finnkiesinger/Harvest Haven/resources/sprites/tree_fir&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/sprites/tree_fir" />
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/sprites" />
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
@@ -104,8 +130,17 @@
       <workItem from="1679296917627" duration="262000" />
       <workItem from="1679298464310" duration="5990000" />
       <workItem from="1679307024060" duration="8431000" />
-      <workItem from="1679327024385" duration="651000" />
+      <workItem from="1679327024385" duration="8242000" />
+      <workItem from="1679390020485" duration="14915000" />
     </task>
+    <task id="LOCAL-00001" summary="added README.md">
+      <created>1679327708505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679327708506</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,5 +148,9 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.tmx" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="added README.md" />
   </component>
 </project>

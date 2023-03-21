@@ -5,7 +5,6 @@ import general.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class MainWindow extends JFrame {
     public static MainWindow instance;

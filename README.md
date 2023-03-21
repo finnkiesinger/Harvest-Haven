@@ -5,3 +5,22 @@ It is built in Java, using as few external libraries as possible.
 
 ## Libraries:
 - JDOM2 - XML parsing
+
+## Todo:
+- [x] Drawing Sprites
+- [x] Drawing Animations
+- [x] Player Movement
+- [x] Loading Levels
+- [x] Collisions with Sprites and Collision Objects
+- [x] Player Spawn Point
+- [ ] Animated World Sprites
+- [ ] Lighting
+- [ ] Player Inventory
+- [ ] Player Health
+- [ ] Farming
+- [ ] Combat
+- [ ] Day-Night Cycle
+- [ ] Economy
+- [ ] NPCs
+- [ ] Quests
+- [ ] Multiplayer

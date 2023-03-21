@@ -15,7 +15,6 @@ abstract public class AnimatedSprite extends Sprite {
 
     public AnimatedSprite(List<Sprite.SpriteInfo> sprites) {
         super(sprites);
-        SetupAnimations();
     }
 
     abstract protected void SetupAnimations();

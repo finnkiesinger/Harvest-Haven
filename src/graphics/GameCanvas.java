@@ -29,7 +29,7 @@ public class GameCanvas extends JPanel {
             level.draw(g2d);
         }
         for (Sprite sprite : spriteList) {
-            sprite.draw(g2d, Sprite.EVERYTHING);
+            sprite.draw(g2d);
         }
     }
 

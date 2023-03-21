@@ -6,6 +6,12 @@ public class Camera {
     public static Camera main;
     public static boolean isInitialized = false;
 
+    public boolean isVisible(Sprite sprite) {
+        Vector2 position = apply(sprite.getPosition());
+        return position.x + sprite.width > 0 && position.x < MainWindow.instance.getWidth() &&
+                position.y + sprite.height > 0 && position.y < MainWindow.instance.getHeight();
+    }
+
     public static void initialize(int x, int y) {
         if (isInitialized) {
             return;

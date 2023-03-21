@@ -25,7 +25,6 @@ public class Game {
     private void startGameLoop() {
         boolean quit = false;
         Camera.initialize(100, 100);
-        Player player = new Player(new Vector2(100, 100));
         Level level = null;
 
         try {
@@ -36,6 +35,7 @@ public class Game {
         }
         assert level != null;
 
+        Player player = new Player(level.getPlayerSpawn());
         player.setLevel(level);
         level.addActor(player);
         window.setLevel(level);

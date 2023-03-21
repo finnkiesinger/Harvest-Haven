@@ -27,6 +27,7 @@ public class Player extends AnimatedSprite {
         y = spawnPoint.y;
         addBoundingBox(-6, 6, 12, 12);
         facing = Direction.DOWN;
+        SetupAnimations();
     }
 
     @Override

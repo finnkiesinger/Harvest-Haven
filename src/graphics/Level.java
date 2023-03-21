@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Level {
@@ -26,6 +25,9 @@ public class Level {
     private final List<Layer> layers = new ArrayList<>();
     private final List<Sprite> sprites = new ArrayList<>();
     private final List<Sprite> actors = new ArrayList<>();
+    private final List<Rectangle> collisionRectangles = new ArrayList<>();
+
+    private Vector2 playerSpawn;
 
     public Level(String mapName) throws MapLoadException {
         this.name = mapName;
@@ -41,7 +43,9 @@ public class Level {
         }
 
         for (Sprite sprite : Stream.concat(sprites.stream(), actors.stream()).sorted().toList()) {
-            sprite.draw(graphics);
+            if (Camera.main.isVisible(sprite)) {
+                sprite.draw(graphics);
+            }
         }
     }
 
@@ -108,21 +112,46 @@ public class Level {
             }
 
             // Load objects
-            Element objectGroup = root.getChild("objectgroup");
-            if (objectGroup == null) {
-                return;
-            }
-            String objectGroupName = objectGroup.getAttribute("name").getValue();
-            if (objectGroupName.equals("Objects")) {
-                List<Element> objectElements = objectGroup.getChildren("object");
-                for (Element objectElement : objectElements) {
-                    String name = objectElement.getAttribute("name").getValue();
-                    int x = objectElement.getAttribute("x").getIntValue();
-                    int y = objectElement.getAttribute("y").getIntValue();
-                    SpriteData data = Assets.instance.getSprite(name);
-                    Sprite sprite = new Sprite(name, x, y);
-                    sprite.addBoundingBox(data.getBoundingBox());
-                    sprites.add(sprite);
+            List<Element> objectGroups = root.getChildren("objectgroup");
+            for (Element objectGroup : objectGroups) {
+                String objectGroupName = objectGroup.getAttribute("name").getValue();
+
+                if (objectGroupName.equals("Objects")) {
+                    List<Element> objectElements = objectGroup.getChildren("object");
+                    for (Element objectElement : objectElements) {
+                        String name = objectElement.getAttribute("name").getValue();
+                        int x = (int) objectElement.getAttribute("x").getDoubleValue();
+                        int y = (int) objectElement.getAttribute("y").getDoubleValue();
+                        SpriteData data = Assets.instance.getSprite(name);
+                        if (data.isAnimated()) {
+                            AnimatedWorldObject animatedWorldObject = new AnimatedWorldObject(data.getNames(), x, y);
+                            animatedWorldObject.addBoundingBox(data.getBoundingBox());
+                            sprites.add(animatedWorldObject);
+                        } else {
+                            Sprite sprite = new Sprite(name, x, y);
+                            sprite.addBoundingBox(data.getBoundingBox());
+                            sprites.add(sprite);
+                        }
+                    }
+                } else if (objectGroupName.equals("Collisions")) {
+                    List<Element> collisionElements = objectGroup.getChildren("object");
+                    for (Element collisionElement : collisionElements) {
+                        int x = (int) (collisionElement.getAttribute("x").getDoubleValue() * Global.SPRITE_SCALE);
+                        int y = (int) (collisionElement.getAttribute("y").getDoubleValue() * Global.SPRITE_SCALE);
+                        int width = (int) (collisionElement.getAttribute("width").getDoubleValue() * Global.SPRITE_SCALE);
+                        int height = (int) (collisionElement.getAttribute("height").getDoubleValue() * Global.SPRITE_SCALE);
+                        collisionRectangles.add(new Rectangle(x, y, width, height));
+                    }
+                } else if (objectGroupName.equals("Spawn Points")) {
+                    List<Element> spawnPointElements = objectGroup.getChildren("object");
+                    for (Element spawnPointElement : spawnPointElements) {
+                        String name = spawnPointElement.getAttribute("name").getValue();
+                        if (name.equals("player_spawn")) {
+                            int x = (int) (spawnPointElement.getAttribute("x").getDoubleValue() * Global.SPRITE_SCALE);
+                            int y = (int) (spawnPointElement.getAttribute("y").getDoubleValue() * Global.SPRITE_SCALE);
+                            playerSpawn = new Vector2(x, y);
+                        }
+                    }
                 }
             }
         } catch (IOException | JDOMException e) {
@@ -130,18 +159,22 @@ public class Level {
         }
     }
 
+    public Vector2 getPlayerSpawn() {
+        return playerSpawn;
+    }
+
     public void addActor(Sprite actor) {
         actors.add(actor);
     }
 
     public List<Rectangle> getCollisionRects(Sprite exclude) {
-        return Stream.concat(sprites.stream(), actors.stream())
+        return Stream.concat(Stream.concat(sprites.stream(), actors.stream())
                 .filter(sprite -> sprite.getBoundingBox() != null && sprite != exclude)
                 .map(sprite -> new Rectangle(
                         sprite.getPosition().x + sprite.getBoundingBox().x,
                         sprite.getPosition().y + sprite.getBoundingBox().y,
                         sprite.getBoundingBox().width,
                         sprite.getBoundingBox().height
-                )).toList();
+                )), collisionRectangles.stream()).toList();
     }
 }

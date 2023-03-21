@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,14 +79,43 @@ public class Assets {
                 List<Element> spriteElements = root.getChildren("sprite");
                 for (Element spriteElement : spriteElements) {
                     String name = spriteElement.getAttributeValue("name");
-
-                    InputStream spriteStream = loader.getResourceAsStream("sprites" + Global.fileSeparator + name + ".png");
-                    if (spriteStream == null) {
-                        throw new IOException("sprites/" + name + ".png not found");
+                    boolean isAnimated = false;
+                    if (spriteElement.getAttribute("animated") != null) {
+                        isAnimated = spriteElement.getAttribute("animated").getBooleanValue();
                     }
-                    images.put(name, ImageIO.read(spriteStream));
+                    SpriteData spriteData;
+                    if (!isAnimated) {
+                        InputStream spriteStream = loader.getResourceAsStream("sprites" + Global.fileSeparator + name + ".png");
+                        if (spriteStream == null) {
+                            throw new IOException("sprites/" + name + ".png not found");
+                        }
 
-                    SpriteData spriteData = new SpriteData(name);
+                        images.put(name, ImageIO.read(spriteStream));
+
+                        spriteData = new SpriteData(name);
+
+
+
+                    } else {
+                        List<String> frames = new ArrayList<>();
+                        int i = 0;
+                        while (true) {
+                            InputStream spriteStream = loader.getResourceAsStream("sprites" + Global.fileSeparator + name + Global.fileSeparator + i + ".png");
+                            if (spriteStream == null) {
+                                break;
+                            }
+                            String frameName = name + Global.fileSeparator + i;
+                            images.put(frameName, ImageIO.read(spriteStream));
+                            frames.add(frameName);
+                            i++;
+                        }
+                        if (frames.isEmpty()) {
+                            throw new IOException("sprites/" + name + " not found");
+                        }
+
+                        spriteData = new SpriteData(frames, true);
+                    }
+                    
                     Element collision = spriteElement.getChild("collision");
                     if (collision != null) {
                         int x = collision.getAttribute("startX").getIntValue();
@@ -94,7 +124,6 @@ public class Assets {
                         int height = collision.getAttribute("endY").getIntValue() - y;
                         spriteData.addBoundingBox(x, y, width, height);
                     }
-
                     sprites.put(name, spriteData);
                 }
             } catch (JDOMException e) {

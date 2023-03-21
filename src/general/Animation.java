@@ -17,7 +17,7 @@ public class Animation {
     private boolean done;
     private final List<List<Image>> frames = new ArrayList<>();
 
-    public Animation(String name, List<List<Sprite.SpriteInfo>> layers, long frameTime, boolean loop) {
+    public <T> Animation(String name, List<List<T>> layers, long frameTime, boolean loop) {
         assert layers.size() > 0;
 
         this.name = name;
@@ -25,17 +25,30 @@ public class Animation {
         this.currentFrame = 0;
         this.frameTime = frameTime;
         this.loop = loop;
-        for (List<Sprite.SpriteInfo> sprites : layers) {
-            List<Image> images = new ArrayList<>();
-            sprites.forEach(spriteInfo -> images.add(Assets.instance
-                    .getImage(spriteInfo.name)
-                    .getSubimage(spriteInfo.x, spriteInfo.y, spriteInfo.width, spriteInfo.height)
-                    .getScaledInstance((int) (spriteInfo.width * Global.SPRITE_SCALE), (int) (spriteInfo.height * Global.SPRITE_SCALE), Image.SCALE_SMOOTH)));
-            frames.add(images);
+        boolean isSpriteInfo = layers.get(0).get(0) instanceof Sprite.SpriteInfo;
+
+        if (isSpriteInfo) {
+            for (List<?> sprites : layers) {
+                List<Image> images = new ArrayList<>();
+                sprites.forEach(spriteInfo -> images.add(Assets.instance
+                        .getImage(((Sprite.SpriteInfo) spriteInfo).name)
+                        .getSubimage(((Sprite.SpriteInfo) spriteInfo).x, ((Sprite.SpriteInfo) spriteInfo).y, ((Sprite.SpriteInfo) spriteInfo).width, ((Sprite.SpriteInfo) spriteInfo).height)
+                        .getScaledInstance((int) (((Sprite.SpriteInfo) spriteInfo).width * Global.SPRITE_SCALE), (int) (((Sprite.SpriteInfo) spriteInfo).height * Global.SPRITE_SCALE), Image.SCALE_SMOOTH)));
+                frames.add(images);
+            }
+        } else {
+            for (List<?> sprites : layers) {
+                List<Image> images = new ArrayList<>();
+                sprites.forEach(spriteInfo -> {
+                    Image image = Assets.instance.getImage((String) spriteInfo);
+                    images.add(image.getScaledInstance((int) (image.getWidth(null) * Global.SPRITE_SCALE), (int) (image.getHeight(null) * Global.SPRITE_SCALE), Image.SCALE_SMOOTH));
+                });
+                frames.add(images);
+            }
         }
     }
 
-    public Animation(String name, List<List<Sprite.SpriteInfo>> layers, long frameTime) {
+    public <T> Animation(String name, List<List<T>> layers, long frameTime) {
         this(name, layers, frameTime, false);
     }
 
