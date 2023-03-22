@@ -22,6 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * Level class.
+ * Used to load and draw levels.
+ *
+ * @author Finn Kiesinger
+ */
 public class Level {
     private final String name;
 
@@ -36,6 +42,12 @@ public class Level {
         this.name = mapName;
         loadMap(mapName);
     }
+
+    /**
+     * Draws the level.
+     *
+     * @param graphics The graphics object to draw on.
+     */
     public void draw(Graphics2D graphics) {
         Vector2 position = Camera.main.apply(new Vector2(0, 0));
         for (Layer layer : layers) {
@@ -69,6 +81,12 @@ public class Level {
         return name;
     }
 
+    /**
+     * Loads a map from a .tmx file.
+     *
+     * @param mapName The name of the map.
+     * @throws MapLoadException If the map could not be loaded.
+     */
     private void loadMap(String mapName) throws MapLoadException {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream("maps" + Global.fileSeparator + mapName + ".tmx")) {
             if (is == null) {
@@ -125,6 +143,8 @@ public class Level {
                 String objectGroupName = objectGroup.getAttribute("name").getValue();
 
                 if (objectGroupName.equals("Objects")) {
+                    // Load all objects, i.e. sprites (static and animated)
+
                     List<Element> objectElements = objectGroup.getChildren("object");
                     for (Element objectElement : objectElements) {
                         String name = objectElement.getAttribute("name").getValue();
@@ -134,6 +154,7 @@ public class Level {
                         if (data.isAnimated()) {
                             AnimatedWorldObject animatedWorldObject = new AnimatedWorldObject(data.getNames(), x, y);
                             animatedWorldObject.addBoundingBox(data.getBoundingBox());
+                            // Set trigger
                             if (data.getTrigger() != null) {
                                 Trigger trigger = data.getTrigger().clone();
                                 trigger.setOnTrigger(() -> animatedWorldObject.playAnimation("Interaction"));
@@ -150,6 +171,7 @@ public class Level {
                         }
                     }
                 } else if (objectGroupName.equals("Collisions")) {
+                    // Load all collision rectangles
                     List<Element> collisionElements = objectGroup.getChildren("object");
                     for (Element collisionElement : collisionElements) {
                         int x = (int) (collisionElement.getAttribute("x").getDoubleValue() * Global.SPRITE_SCALE);
@@ -159,6 +181,7 @@ public class Level {
                         collisionRectangles.add(new Rectangle(x, y, width, height));
                     }
                 } else if (objectGroupName.equals("Spawn Points")) {
+                    // Load all spawn points
                     List<Element> spawnPointElements = objectGroup.getChildren("object");
                     for (Element spawnPointElement : spawnPointElements) {
                         String name = spawnPointElement.getAttribute("name").getValue();
@@ -169,6 +192,7 @@ public class Level {
                         }
                     }
                 } else if (objectGroupName.equals("Lighting")) {
+                    // Load all fixed light sources
                     List<Element> lightElements = objectGroup.getChildren("object");
                     for (Element lightElement : lightElements) {
                         int x = (int) (lightElement.getAttribute("x").getDoubleValue() * Global.SPRITE_SCALE);

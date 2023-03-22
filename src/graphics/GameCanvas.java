@@ -35,6 +35,7 @@ public class GameCanvas extends JPanel {
             sprite.draw(g2d);
         }
 
+        // Draw light map
         if (lightMap != null) {
             Vector2 position = Camera.main.apply(new Vector2(0, 0));
             g2d.drawImage(lightMap, position.x, position.y, null);

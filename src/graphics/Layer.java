@@ -6,6 +6,12 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Layer class.
+ * A Layer object represents one layer of a tile map.
+ *
+ * @author Finn Kiesinger
+ */
 public class Layer {
     private final int index;
     private final String name;
@@ -26,6 +32,10 @@ public class Layer {
         this.tileWidth = tileWidth;
         this.tileHeight = tileHeight;
         this.source = source;
+    }
+
+    public int getIndex() {
+        return index;
     }
 
     public String getName() {
@@ -52,6 +62,11 @@ public class Layer {
         return new Vector2(width * tileWidth, height * tileHeight);
     }
 
+    /**
+     * Takes all tiles of the layer and creates a BufferedImage from them.
+     * This is used to draw the layer on the screen.
+     * This removes some drawing issues with the tiles.
+     */
     public void createLayerImage() {
         BufferedImage layerImage = new BufferedImage(
                 width * tileWidth,

@@ -12,6 +12,12 @@ public class Lighting {
     private Lighting() {
     }
 
+    /**
+     * Calculates the brightness of a color
+     *
+     * @param color the color
+     * @return the brightness of the color
+     */
     public static int calculateBrightness(Color color) {
         return (color.getRed() + color.getGreen() + color.getBlue()) / 3;
     }
@@ -24,6 +30,13 @@ public class Lighting {
         lights.remove(light);
     }
 
+    /**
+     * Returns the light color at the given coordinates
+     *
+     * @param x x coordinate
+     * @param y y coordinate
+     * @return the light color at the given coordinates
+     */
     private Color getLight(int x, int y) {
         Color brightestColor = Color.BLACK;
         int maxBrightness = calculateBrightness(brightestColor);
@@ -40,6 +53,13 @@ public class Lighting {
         return new Color(0, 0, 0, 255 - maxBrightness);
     }
 
+    /**
+     * Calculates the light map, which is a BufferedImage with the light color at each pixel
+     *
+     * @param width  width of the light map (derived from level size)
+     * @param height height of the light map (derived from level size)
+     * @return the light map, as a BufferedImage
+     */
     public BufferedImage calculateLightMap(int width, int height) {
         BufferedImage lightMap = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         for (int x = 0; x < width; x++) {

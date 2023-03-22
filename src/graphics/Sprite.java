@@ -121,14 +121,32 @@ public class Sprite implements Comparable<Sprite> {
         }
     }
 
+    /**
+     * Update the sprite
+     *
+     * @param deltaTime time since last update, in nanoseconds
+     */
     public void update(long deltaTime) {
 
     }
 
+    /**
+     * Get the position of the sprite
+     *
+     * @return the position of the sprite
+     */
     public Vector2 getPosition() {
         return new Vector2((int) x, (int) y);
     }
 
+    /**
+     * Used to order sprites by according to the drawing order.
+     * Sprites with higher y values are drawn on top of sprites with lower y values.
+     *
+     * @param other the object to be compared.
+     * @return a negative integer if this object should be drawn below the other object,
+     * and a positive integer if this object should be drawn above the other object.
+     */
     @Override
     public int compareTo(Sprite other) {
         if (this.boundingBox != null && other.boundingBox != null) {

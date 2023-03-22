@@ -10,21 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2cd8d82-6ff4-4142-b36f-1158b27af07e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/Lighting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/LightingThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/PlayerBase.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/PlayerBase.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/general/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/general/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/general/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/AnimatedSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/AnimatedWorldObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/AnimatedWorldObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/GameCanvas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lighting/Lighting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/Lighting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lighting/LightingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightingThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,13 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="finnkiesinger &lt;finnkiesinger@gmail.com&gt;" />
       </list>
     </option>
   </component>
@@ -123,7 +127,8 @@
       <workItem from="1679307024060" duration="8431000" />
       <workItem from="1679327024385" duration="8242000" />
       <workItem from="1679390020485" duration="14915000" />
-      <workItem from="1679469609667" duration="13209000" />
+      <workItem from="1679469609667" duration="13302000" />
+      <workItem from="1679486115509" duration="4315000" />
     </task>
     <task id="LOCAL-00001" summary="added README.md">
       <created>1679327708505</created>
@@ -146,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679432136026</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added Lighting">
+      <created>1679486087456</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679486087456</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +172,8 @@
     <MESSAGE value="added README.md" />
     <MESSAGE value="trigger added" />
     <MESSAGE value="animation optimization" />
-    <option name="LAST_COMMIT_MESSAGE" value="animation optimization" />
+    <MESSAGE value="added Lighting" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Lighting" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

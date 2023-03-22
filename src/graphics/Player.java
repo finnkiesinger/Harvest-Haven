@@ -8,6 +8,14 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The player class
+ * Player is an animated sprite that can move around the map
+ *
+ * @author Finn Kiesinger
+ * @see graphics.AnimatedSprite for more information on the animation
+ * @see graphics.Sprite for more information on the sprite
+ */
 public class Player extends AnimatedSprite {
     private static final double SPEED = 80;
     private double dx = 0;
@@ -41,6 +49,7 @@ public class Player extends AnimatedSprite {
             sprites = images;
         }
 
+        // Calculate the position of the player, relative to the camera, centered
         Vector2 position = Camera.main
                 .apply(new Vector2((int) x, (int) y))
                 .subtract(getCenter());
@@ -52,6 +61,11 @@ public class Player extends AnimatedSprite {
         this.level = level;
     }
 
+    /**
+     * Update the player, handle collisions and triggers
+     *
+     * @param deltaTime time since last update, in nanoseconds
+     */
     @Override
     public void update(long deltaTime) {
         super.update(deltaTime);
@@ -61,6 +75,7 @@ public class Player extends AnimatedSprite {
         y += adjustY;
 
         if (level != null) {
+            // Check for collisions
             for (Rectangle other : level.getCollisionRects(this)) {
                 Rectangle intersect = new Rectangle(
                         (int) (x + boundingBox.x),
@@ -81,6 +96,8 @@ public class Player extends AnimatedSprite {
                     }
                 }
             }
+
+            // Check for triggers
             Rectangle intersect = new Rectangle(
                     (int) (x + boundingBox.x),
                     (int) (y + boundingBox.y),

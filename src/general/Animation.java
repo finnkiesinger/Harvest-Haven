@@ -8,15 +8,48 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Animation class
+ *
+ * @author Finn Kiesinger
+ */
 public class Animation {
+    /**
+     * Name of the animation
+     */
     private final String name;
+    /**
+     * Number of frames in the animation
+     */
     private final int frameCount;
-    private int currentFrame;
-    private int elapsedTime;
+    /**
+     * Time to display each frame, in nanoseconds
+     */
     private final long frameTime;
+    /**
+     * Whether the animation loops
+     */
     private final boolean loop;
-    private boolean done;
+    /**
+     * List of frames
+     */
     private final List<Image> frames = new ArrayList<>();
+    /**
+     * Current frame
+     */
+    private int currentFrame;
+    /**
+     * Time since last frame change, in nanoseconds
+     */
+    private int elapsedTime;
+    /**
+     * Whether the animation is done
+     */
+    private boolean done;
+    /**
+     * Whether the animation can be cancelled
+     */
+    private boolean cancel;
 
     public <T> Animation(String name, List<List<T>> layers, long frameTime, boolean loop) {
         assert layers.size() > 0;
@@ -59,8 +92,18 @@ public class Animation {
             g.dispose();
             frames.add(image);
         }
+        this.cancel = true;
     }
 
+    public boolean canCancel() {
+        return cancel;
+    }
+
+    /**
+     * Update the animation
+     *
+     * @param deltaTime time since last update, in nanoseconds
+     */
     public void update(long deltaTime) {
         if (done) {
             return;
@@ -86,12 +129,18 @@ public class Animation {
         return frames.get(currentFrame);
     }
 
+    /**
+     * Reset the animation
+     */
     public void reset() {
         currentFrame = 0;
         elapsedTime = 0;
         done = false;
     }
 
+    /**
+     * Check if the animation is done
+     */
     public boolean isDone() {
         return done;
     }

@@ -8,6 +8,15 @@ import java.awt.*;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * AnimatedWorldObject is a class that extends AnimatedSprite and is used to create animated objects in the world.
+ * AnimatedWorldObjects have one animation, called when they are interacted with, or their trigger is activated.
+ * The animation is called "Interaction".
+ *
+ * @author Finn Kiesinger
+ * @see graphics.AnimatedSprite
+ * @see graphics.Sprite
+ */
 public class AnimatedWorldObject extends AnimatedSprite {
     public AnimatedWorldObject(List<List<String>> sprites, int x, int y, long frameTime) {
         super(List.of());
