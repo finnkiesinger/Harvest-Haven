@@ -5,15 +5,19 @@ import general.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class MainWindow extends JFrame {
+    static GraphicsDevice device = GraphicsEnvironment
+            .getLocalGraphicsEnvironment().getScreenDevices()[0];
+
     public static MainWindow instance;
 
-    private final GameCanvas canvas;
+    private final GameCanvas canvas = new GameCanvas();
 
     public MainWindow() {
         super("Harvest Haven");
-        setSize(1280, 720);
+        setUndecorated(true);
         if (instance == null) {
             instance = this;
         }
@@ -22,10 +26,15 @@ public class MainWindow extends JFrame {
         setResizable(false);
         setLayout(new BorderLayout());
 
-        canvas = new GameCanvas();
-        add(canvas, BorderLayout.CENTER);
+
+        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane.setLayout(new BorderLayout());
+        layeredPane.add(canvas, BorderLayout.CENTER, 0);
+
+        add(layeredPane, BorderLayout.CENTER);
 
         addKeyListener(Input.instance);
+        device.setFullScreenWindow(this);
     }
 
     public Vector2 getCenter() {
@@ -36,8 +45,16 @@ public class MainWindow extends JFrame {
         canvas.addSprite(sprite);
     }
 
+    public void setLightMap(BufferedImage lightMap) {
+        canvas.setLightMap(lightMap);
+    }
+
     public void setLevel(Level level) {
         canvas.setLevel(level);
+    }
+
+    public Vector2 getLevelSize() {
+        return canvas.getLevelSize();
     }
 
     public void draw() {

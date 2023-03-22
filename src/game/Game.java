@@ -1,24 +1,35 @@
 package game;
 
 import exceptions.MapLoadException;
-import general.Vector2;
 import graphics.Camera;
 import graphics.Level;
 import graphics.MainWindow;
 import graphics.Player;
+import lighting.DirectionalLight;
+import lighting.Lighting;
+import lighting.LightingThread;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Game {
     private final MainWindow window;
+    private final LightingThread lightingThread = new LightingThread();
+    private DirectionalLight sun;
+
+    private double sunStrength = 1.0;
+
+    private boolean day = true;
 
     public Game() {
         window = new MainWindow();
         Assets.instance.loadAssets();
         window.setVisible(true);
+
         startGameLoop();
 
         window.setVisible(false);
+        lightingThread.interrupt();
         System.exit(0);
     }
 
@@ -35,6 +46,12 @@ public class Game {
         }
         assert level != null;
 
+        // Setup Light
+        sun = new DirectionalLight(new Color(255, 255, 255, 100), sunStrength);
+        Lighting.instance.addLight(sun);
+        lightingThread.start();
+
+        // Setup Player
         Player player = new Player(level.getPlayerSpawn());
         player.setLevel(level);
         level.addActor(player);
@@ -81,6 +98,9 @@ public class Game {
                     player.playAnimation("WalkDown");
                 }
             }
+            if (Input.instance.wasKeyPressed(KeyEvent.VK_T)) {
+                day = !day;
+            }
             player.stopMoving(!isMovingHorizontal, !isMovingVertical);
 
             long currentTime = System.nanoTime();
@@ -100,7 +120,13 @@ public class Game {
         }
     }
 
+    double lerp(double a, double b, double f) {
+        return a + f * (b - a);
+    }
+
     private void update(long deltaTime) {
         window.update(deltaTime);
+        sunStrength = lerp(sunStrength, day ? 1.0 : 0.5, 0.1 * deltaTime / 1e9);
+        sun.setStrength(sunStrength);
     }
 }

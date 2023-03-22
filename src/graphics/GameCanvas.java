@@ -1,5 +1,7 @@
 package graphics;
 
+import general.Vector2;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -8,6 +10,7 @@ import java.util.List;
 
 public class GameCanvas extends JPanel {
     private final List<Sprite> spriteList = new ArrayList<>();
+    private BufferedImage lightMap = null;
     private Level level = null;
 
 
@@ -31,6 +34,15 @@ public class GameCanvas extends JPanel {
         for (Sprite sprite : spriteList) {
             sprite.draw(g2d);
         }
+
+        if (lightMap != null) {
+            Vector2 position = Camera.main.apply(new Vector2(0, 0));
+            g2d.drawImage(lightMap, position.x, position.y, null);
+        }
+    }
+
+    public void setLightMap(BufferedImage lightMap) {
+        this.lightMap = lightMap;
     }
 
     public void addSprite(Sprite sprite) {
@@ -43,6 +55,13 @@ public class GameCanvas extends JPanel {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public Vector2 getLevelSize() {
+        if (level == null) {
+            return new Vector2(getWidth(), getHeight());
+        }
+        return level.getSize();
     }
 
     public void draw() {

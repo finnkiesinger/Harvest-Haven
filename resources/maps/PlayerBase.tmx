@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="160" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="38">
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="160" height="90" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="39">
  <tileset firstgid="1" name="Farm" tilewidth="16" tileheight="16" tilecount="10508" columns="148">
   <image source="../tilesets/global.png" width="2368" height="1136"/>
  </tileset>
@@ -14442,6 +14442,15 @@
   <object id="34" x="30.2843" y="81.5573" width="18.8867" height="16.02"/>
   <object id="35" x="27.9717" y="1.48456" width="13.4905" height="80.6057"/>
   <object id="37" x="36.4667" y="85.9962" width="18.8867" height="16.02"/>
+ </objectgroup>
+ <objectgroup id="9" name="Lighting">
+  <object id="38" name="point_light" x="288" y="416" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#80ffffff"/>
+    <property name="radius" type="int" value="200"/>
+    <property name="strength" type="float" value="0.8"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="8" name="Spawn Points">
   <object id="36" name="player_spawn" x="208" y="448" width="16" height="16"/>

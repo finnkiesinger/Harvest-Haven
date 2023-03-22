@@ -13,8 +13,9 @@ It is built in Java, using as few external libraries as possible.
 - [x] Loading Levels
 - [x] Collisions with Sprites and Collision Objects
 - [x] Player Spawn Point
-- [ ] Animated World Sprites
-- [ ] Lighting
+- [x] Animated World Sprites
+- [x] Lighting
+- [ ] Interaction Tile
 - [ ] Player Inventory
 - [ ] Player Health
 - [ ] Farming

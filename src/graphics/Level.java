@@ -3,9 +3,11 @@ package graphics;
 import exceptions.MapLoadException;
 import game.Assets;
 import general.Global;
+import general.Rectangle;
 import general.Trigger;
 import general.Vector2;
-import general.Rectangle;
+import lighting.Lighting;
+import lighting.PointLight;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -45,7 +47,7 @@ public class Level {
 
         for (Sprite sprite : Stream.concat(sprites.stream(), actors.stream()).sorted().toList()) {
             if (Camera.main.isVisible(sprite)) {
-                sprite.draw(graphics);
+                sprite.draw(graphics, Sprite.SPRITE);
             }
         }
     }
@@ -57,6 +59,10 @@ public class Level {
         for (Sprite actor : actors) {
             actor.update(deltaTime);
         }
+    }
+
+    public Vector2 getSize() {
+        return layers.get(0).getSize();
     }
 
     public String getName() {
@@ -108,6 +114,7 @@ public class Level {
                 }
                 layers.add(layer);
             }
+
             for (Layer layer : layers) {
                 layer.createLayerImage();
             }
@@ -160,6 +167,32 @@ public class Level {
                             int y = (int) (spawnPointElement.getAttribute("y").getDoubleValue() * Global.SPRITE_SCALE);
                             playerSpawn = new Vector2(x, y);
                         }
+                    }
+                } else if (objectGroupName.equals("Lighting")) {
+                    List<Element> lightElements = objectGroup.getChildren("object");
+                    for (Element lightElement : lightElements) {
+                        int x = (int) (lightElement.getAttribute("x").getDoubleValue() * Global.SPRITE_SCALE);
+                        int y = (int) (lightElement.getAttribute("y").getDoubleValue() * Global.SPRITE_SCALE);
+                        Element propertiesElement = lightElement.getChild("properties");
+                        List<Element> propertyElements = propertiesElement.getChildren("property");
+                        int radius = 0;
+                        double strength = 0;
+                        Color color = null;
+                        for (Element propertyElement : propertyElements) {
+                            String propertyName = propertyElement.getAttribute("name").getValue();
+                            if (propertyName.equals("radius")) {
+                                radius = propertyElement.getAttribute("value").getIntValue();
+                                radius *= Global.SPRITE_SCALE;
+                            } else if (propertyName.equals("color")) {
+                                String colorString = propertyElement.getAttribute("value").getValue();
+                                colorString = "#" + colorString.substring(3);
+                                color = Color.decode(colorString);
+                            } else if (propertyName.equals("strength")) {
+                                strength = propertyElement.getAttribute("value").getDoubleValue();
+                            }
+                        }
+                        PointLight light = new PointLight(color, strength, radius, x, y);
+                        Lighting.instance.addLight(light);
                     }
                 }
             }

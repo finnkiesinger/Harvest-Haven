@@ -1,5 +1,7 @@
 package graphics;
 
+import general.Vector2;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +28,6 @@ public class Layer {
         this.source = source;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
     public String getName() {
         return name;
     }
@@ -50,12 +48,8 @@ public class Layer {
         return height;
     }
 
-    public int getTileWidth() {
-        return tileWidth;
-    }
-
-    public int getTileHeight() {
-        return tileHeight;
+    public Vector2 getSize() {
+        return new Vector2(width * tileWidth, height * tileHeight);
     }
 
     public void createLayerImage() {

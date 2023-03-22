@@ -158,7 +158,7 @@ public class Sprite implements Comparable<Sprite> {
     public void setTrigger(Trigger trigger) {
         if (trigger == null) return;
 
-        trigger.setBoundingBox(trigger.getBoundingBox().scaled(2));
+        trigger.setBoundingBox(trigger.getBoundingBox().scaled(Global.SPRITE_SCALE));
         this.trigger = trigger;
     }
 
